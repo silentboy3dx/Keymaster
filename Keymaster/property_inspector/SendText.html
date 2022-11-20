@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>SendKeys Property Inspector</title>
+    <link rel="stylesheet" href="css/sdpi.css">
+    <link rel="stylesheet" href="css/property-inspector.css">
+</head>
+<body>
+<div class="sdpi-wrapper">
+    <!-- for more examples of the types of fields supported in property inspector visit:
+        Elgato Github PiSamples -> https://github.com/elgatosf/streamdeck-pisamples
+        and
+        Elgato SDK Documentation -> https://developer.elgato.com/documentation/stream-deck/sdk/property-inspector/
+-->
+
+    <div type="textarea" class="sdpi-item">
+        <div class="sdpi-item-label">Text</div>
+        <span class="sdpi-item-value textarea">
+            <textarea type="textarea" id="textValue" class="property_value" data-name="Text" data-default=""></textarea>
+        </span>
+    </div>
+
+    <div class="sdpi-item">
+        <div class="sdpi-item-label empty"></div>
+        <button class="sdpi-item-value" onclick="saveSettings()">Save</button>
+    </div>
+		
+</div>
+<script src="js/property-inspector.js"></script>
+</body>
+</html>

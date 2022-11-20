@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2022 Johnny Mast
+ * Copyright 2022 SilentBoy
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 
  * "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish,
@@ -19,7 +19,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace SendKeys.Core
+namespace Keymaster.Core
 {
     public class NativeWin32
     {
@@ -28,35 +28,8 @@ namespace SendKeys.Core
 
         [DllImport("User32.dll")]
         public static extern int SetForegroundWindow(int hWnd);
-
-
-        // [DllImport("user32.dll")]
-        // public static extern int FindWindow(string lpClassName, string lpWindowName);
-        //
-        // [DllImport("user32")]
-        // public static extern bool PostMessage(int hWnd, uint Msg, int wParam, IntPtr lParam);
-        //
-        // [DllImport("user32.dll")]
-        // public static extern int SendMessage(int hWnd, uint uMsg, int wParam, IntPtr lParam);
-        //
-        //
-        // [DllImport("user32.dll")]
-        // public static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass,
-        //     string lpszWindow);
-
+        
         [DllImport("user32.dll")]
         public static extern int GetWindowText(int hwnd, StringBuilder ss, int count);
-        
-
-        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-        public static extern int GetClassName(IntPtr hWnd, StringBuilder lpClassName, int nMaxCount);
-
-        [DllImport("user32.dll")]  
-        public static extern int SendMessage(int hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPStr)] string lParam);  
-
-        
-
-        public const int WM_SETTEXT = 0X000C;
-        public const int WM_PASTE = 0x0302;
     }
 }

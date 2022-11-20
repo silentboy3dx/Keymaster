@@ -10,7 +10,7 @@ if ($PSSCriptRoot.Length -eq 0) {
 
 
 # Load and parse the plugin project file
-$pluginProjectFile = "$basePath\SendKeys.csproj"
+$pluginProjectFile = "$basePath\Keymaster.csproj"
 $projectContent = Get-Content $pluginProjectFile | Out-String;
 $projectXML = [xml]$projectContent;
 
@@ -28,7 +28,7 @@ $bindir = "$basePath\bin\Debug"
 
 # Make sure we actually have a directory/build to deploy
 If (-not (Test-Path $bindir)) {
-  Write-Error "The output directory `"$bindir`" was not found.`n You must first build the `"SendKeys`" project before calling this script.";
+  Write-Error "The output directory `"$bindir`" was not found.`n You must first build the `"Keymaster`" project before calling this script.";
   exit 1;
 }
 

@@ -1,0 +1,40 @@
+{
+  "Actions": [
+    {
+      "Icon": "resources/sendtext_actionicon",
+      "Name": "Send Texts",
+      "States": [
+        {
+          "Image": "resources/sendtext_keyimage",
+          "TitleAlignment": "middle",
+          "FontSize": "16"
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "Tooltip": "Send Text into 3DXChat",
+      "UUID": "io.silentboy.keymaster.SendText",
+      "PropertyInspectorPath": "property_inspector/SendText.html"
+    }
+  ],
+	"Category": "3DXChat",
+	"CategoryIcon": "resources/categoryIcon",
+	"Disabled":  false,
+	"Author": "SilentBoy",
+	"CodePathWin": "Keymaster.exe",
+	"CodePathMac":  "Keymaster",
+  "Description": "Send ascii art into 3DXChat like a boss.",
+  "Name": "Send ASCII Art",
+  "Icon": "images/pluginIcon",
+  "URL": "https://www.elgato.com/gaming/stream-deck",
+  "Version": "1.0",
+	"SDKVersion": 2,
+	"Software": {
+		"MinimumVersion":  "4.1"
+	},
+	"OS": [
+    {
+        "Platform": "windows",
+        "MinimumVersion" : "10"
+    }
+  ]
+}

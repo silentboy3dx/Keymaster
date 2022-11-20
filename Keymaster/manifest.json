@@ -12,16 +12,16 @@
       ],
       "SupportedInMultiActions": false,
       "Tooltip": "Send Text into 3DXChat",
-      "UUID": "io.silentboy.sendkeys.send.SendText",
+      "UUID": "io.silentboy.keymaster.SendText",
       "PropertyInspectorPath": "property_inspector/SendText.html"
     }
   ],
-	"Category": "3DXChat",
+	"Category": "Keyma/rollster",
 	"CategoryIcon": "resources/categoryIcon",
 	"Disabled":  false,
 	"Author": "SilentBoy",
-	"CodePathWin": "SendKeys.exe",
-	"CodePathMac":  "SendKeys",
+	"CodePathWin": "Keymaster.exe",
+	"CodePathMac":  "Keymaster",
   "Description": "Send ascii art into 3DXChat like a boss.",
   "Name": "Send ASCII Art",
   "Icon": "images/pluginIcon",
@@ -32,10 +32,6 @@
 		"MinimumVersion":  "4.1"
 	},
 	"OS": [
-    {
-        "Platform": "mac",
-        "MinimumVersion" : "10.11"
-    },
     {
         "Platform": "windows",
         "MinimumVersion" : "10"

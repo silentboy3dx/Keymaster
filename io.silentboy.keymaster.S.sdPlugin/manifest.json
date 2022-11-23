@@ -16,7 +16,7 @@
       "PropertyInspectorPath": "property_inspector/SendText.html"
     }
   ],
-	"Category": "3DXChat",
+	"Category": "3DXChat", 
 	"CategoryIcon": "resources/categoryIcon",
 	"Disabled":  false,
 	"Author": "SilentBoy",

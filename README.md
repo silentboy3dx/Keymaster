@@ -20,7 +20,7 @@ First of all, make sure you have closed the Stream deck application. To install 
 ```
 %appdata%\Elgato\StreamDeck\Plugins\
 ```
-
+   
 ## The author
 
 My name is Silentboy. You might know me from the Sin club (say hi). Of course, this is not my real name but I don't want to reveal my real name here since not everyone in Sin likes me (Shoutout to Clittywinks). Just say hi when you see me if you will use the plugin and I will be happy (it's free after all).

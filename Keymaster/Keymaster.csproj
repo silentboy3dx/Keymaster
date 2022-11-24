@@ -219,7 +219,6 @@
     <Content Include="property_inspector\SendText.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="README.md" />
     <Content Include="RegisterPluginAndStartStreamDeck.ps1" />
     <Content Include="RegisterPluginAndStartStreamDeck.sh" />
     <Content Include="resources\sendtext_actionicon.png">

@@ -15,9 +15,8 @@
  * IN THE SOFTWARE.
 */
 
-namespace Keymaster.Models
-{
-    public class SendTextSettingsModel
+namespace Keymaster.Models.Settings {
+    public partial class SendTextSettingsModel
     {
         public string Text { get; set; } = "";
     }

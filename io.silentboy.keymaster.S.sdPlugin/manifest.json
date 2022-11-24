@@ -12,11 +12,26 @@
       ],
       "SupportedInMultiActions": false,
       "Tooltip": "Send Text into 3DXChat",
-      "UUID": "io.silentboy.keymaster.SendText",
+      "UUID": "io.silentboy.keymaster.Actions.SendText",
       "PropertyInspectorPath": "property_inspector/SendText.html"
+    },
+    {
+      "Icon": "resources/sendtext_actionicon",
+      "Name": "Random Joke",
+      "States": [
+        {
+          "Image": "resources/sendtext_keyimage",
+          "TitleAlignment": "middle",
+          "FontSize": "16"
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "Tooltip": "Send Text into 3DXChat",
+      "UUID": "io.silentboy.keymaster.Actions.RandomJoke",
+      "PropertyInspectorPath": "property_inspector/RandomJoke.html"
     }
   ],
-	"Category": "3DXChat", 
+	"Category": "3DXChat",
 	"CategoryIcon": "resources/categoryIcon",
 	"Disabled":  false,
 	"Author": "SilentBoy",
@@ -26,7 +41,7 @@
   "Name": "Send ASCII Art",
   "Icon": "images/pluginIcon",
   "URL": "https://github.com/silentboy3dx/Keymaster",
-  "Version": "1.0",
+  "Version": "1.1",
 	"SDKVersion": 2,
 	"Software": {
 		"MinimumVersion":  "4.1"

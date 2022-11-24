@@ -15,7 +15,7 @@ text / ASCII art and press save. When you are in the game, make sure your cursor
 
 ## Install the plugin
 
-First of all, make sure you have closed the Stream deck application. To install the plugin copy and paste the ***io.silentboy.keymaster.S.sdPlugin*** directory into the following folder:
+First of all, make sure you have closed the Stream deck application. To install the plugin copy and paste the ***io.silentboy.keymaster.Actions.S.sdPlugin*** directory into the following folder:
 
 ```
 %appdata%\Elgato\StreamDeck\Plugins\

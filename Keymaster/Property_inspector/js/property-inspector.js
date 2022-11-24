@@ -40,7 +40,6 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
 }
 
 
-
 const setSettings = (settingsModel) => {
     if (websocket) {
         let json = {
@@ -55,12 +54,25 @@ const setSettings = (settingsModel) => {
 };
 
 
+
 const restoreSettings = (settingsModel) => {
     Object.keys(settingsModel).forEach((key) => {
         let elm = document.querySelector(`[data-name="${key}"]`)
-        if (typeof elm !== 'undefined') {
-            elm.value = settingsModel[key]
-        } 
+        if (elm && typeof elm !== 'undefined') {
+            if (elm.type === 'file') {
+                const info = document.querySelector(`[data-fileinfo="${key}"]`);
+                if (info) {
+                    const s = settingsModel[key].split('/').pop();
+                    info.textContent = s.length > 28
+                        ? s.substr(0, 10)
+                        + '...'
+                        + s.substr(s.length - 10, s.length)
+                        : s;
+                }
+            } else {
+                elm.value = settingsModel[key]
+            }
+        }
     });
 }
 
@@ -72,12 +84,34 @@ const saveSettings = () => {
     Object.values(properties).forEach((property) => {
         if (typeof property.dataset.name != "undefined") {
             let key = property.dataset.name;
-            settings[key] = property.value
+            
+            if (property.type === 'file') {
+                if (settings[key] !== property.value) {
+                    settings[key] = decodeURIComponent(property.value.replace(/^C:\\fakepath\\/, ''))
+                }
+            }  else {
+                settings[key] = property.value
+            }
         }
     });
 
     if (Object.keys(settings).length > 0) {
         setSettings(settings);
+    }
+}
+
+const updateFileInfo = (e) => {
+    
+    const target = e.target
+   
+    const info = document.querySelector(`[data-fileinfo="${target.dataset.name}"]`);
+    if (info) {
+        const s = target.value.split('/').pop();
+        info.textContent = s.length > 28
+            ? s.substr(0, 10)
+            + '...'
+            + s.substr(s.length - 10, s.length)
+            : s;
     }
 }
 
@@ -88,6 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (typeof property.dataset.default != "undefined") {
                 property.value = property.dataset.default;
             }
+        }
+
+        
+        if (property.type === 'file') {
+           property.addEventListener('change', updateFileInfo)
         }
 
         property.addEventListener("change", saveSettings)

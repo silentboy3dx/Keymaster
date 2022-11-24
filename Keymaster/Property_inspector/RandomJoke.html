@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Random Joke Property Inspector</title>
+    <link rel="stylesheet" href="css/sdpi.css">
+    <link rel="stylesheet" href="css/property-inspector.css">
+</head>
+<body>
+<div class="sdpi-wrapper">
+    <!-- for more examples of the types of fields supported in property inspector visit:
+        Elgato Github PiSamples -> https://github.com/elgatosf/streamdeck-pisamples
+        and
+        Elgato SDK Documentation -> https://developer.elgato.com/documentation/stream-deck/sdk/property-inspector/
+-->
+
+    <div class="sdpi-item" id="my_private_file_selector">
+        <div class="sdpi-item-label">Select File</div>
+        <div class="sdpi-item-group file" id="filepickergroup">
+            <input class="sdpi-item-value property_value" type="file" id="elgfilepicker" data-name="File" accept=".csv">
+            <label class="sdpi-file-info" for="elgfilepicker" data-fileinfo="File">no file...</label>
+            <label class="sdpi-file-label" for="elgfilepicker">Choose file...</label>
+        </div>
+    </div>
+
+    <div class="sdpi-item-group">
+        <div type="select" class="sdpi-item" id="messagegroup_account">
+            <div class="sdpi-item-label">Seperator type</div>
+            <select class="sdpi-item-value select property_value" data-default="," data-name="Delimiter">
+                <option value=",">,</option>
+                <option value=";">;</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="sdpi-item-group">
+        <div type="select" class="sdpi-item">
+            <div class="sdpi-item-label">Includes header</div>
+            <select class="sdpi-item-value select property_value" data-default="0" data-name="Header">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="sdpi-item">
+        <div class="sdpi-item-label empty"></div>
+        <button class="sdpi-item-value" onclick="saveSettings()">Save</button>
+    </div>
+
+</div>
+<script src="js/property-inspector.js"></script>
+</body>
+</html>

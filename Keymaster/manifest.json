@@ -1,23 +1,38 @@
 {
   "Actions": [
     {
-      "Icon": "resources/sendtext_actionicon",
+      "Icon": "Resources/sendtext_actionicon",
       "Name": "Send Texts",
       "States": [
         {
-          "Image": "resources/sendtext_keyimage",
+          "Image": "Resources/sendtext_keyimage",
           "TitleAlignment": "middle",
           "FontSize": "16"
         }
       ],
       "SupportedInMultiActions": false,
       "Tooltip": "Send Text into 3DXChat",
-      "UUID": "io.silentboy.keymaster.SendText",
-      "PropertyInspectorPath": "property_inspector/SendText.html"
+      "UUID": "io.silentboy.keymaster.Actions.SendText",
+      "PropertyInspectorPath": "Property_inspector/SendText.html"
+    },
+    {
+      "Icon": "Resources/sendtext_actionicon",
+      "Name": "Random Joke",
+      "States": [
+        {
+          "Image": "Resources/sendtext_keyimage",
+          "TitleAlignment": "middle",
+          "FontSize": "16"
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "Tooltip": "Send Text into 3DXChat",
+      "UUID": "io.silentboy.keymaster.Actions.RandomJoke",
+      "PropertyInspectorPath": "Property_inspector/RandomJoke.html"
     }
   ],
 	"Category": "3DXChat",
-	"CategoryIcon": "resources/categoryIcon",
+	"CategoryIcon": "Resources/categoryIcon",
 	"Disabled":  false,
 	"Author": "SilentBoy",
 	"CodePathWin": "Keymaster.exe",
@@ -26,7 +41,7 @@
   "Name": "Send ASCII Art",
   "Icon": "images/pluginIcon",
   "URL": "https://github.com/silentboy3dx/Keymaster",
-  "Version": "1.0",
+  "Version": "1.1",
 	"SDKVersion": 2,
 	"Software": {
 		"MinimumVersion":  "4.1"

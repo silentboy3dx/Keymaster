@@ -21,15 +21,16 @@ using System.Threading.Tasks;
 using Keymaster.Core;
 using StreamDeckLib;
 using StreamDeckLib.Messages;
+using System;
 
 namespace Keymaster
 {
-    [ActionUuid(Uuid = "io.silentboy.keymaster.SendText")]
-    public class SendTextAction : BaseStreamDeckActionWithSettingsModel<Models.SendTextSettingsModel>
+    [ActionUuid(Uuid = "io.silentboy.keymaster.Actions.RandomJoke")]
+    public class RandomJokeAction : BaseStreamDeckActionWithSettingsModel<Models.Settings.SendTextSettingsModel>
     {
         public override async Task OnKeyUp(StreamDeckEventPayload args)
         {
-            if (SettingsModel.Text.Length == 0)
+            if (SettingsModel.File.Length == 0)
             {
                 /*
                  * Show an alert if there is no text to send.
@@ -38,18 +39,42 @@ namespace Keymaster
             }
             else
             {
+                try
+                {
+                    await Manager.LogMessageAsync(args.context, $"The file is {SettingsModel.File}");
+                    await Manager.LogMessageAsync(args.context, $"The delimiter is {SettingsModel.Delimiter}");
+                    await Manager.LogMessageAsync(args.context, $"The header is {SettingsModel.Header}");
                 
-                var hWnd = NativeWin32.GetForegroundWindow();
-                var strOut = new StringBuilder(256);
-            
-                NativeWin32.SetForegroundWindow(hWnd);
-                NativeWin32.GetWindowText(hWnd, strOut, strOut.Capacity);
-                Thread.Sleep(1000);
-                
-                TextCopy.ClipboardService.SetText(SettingsModel.Text);
+                    var joke = SettingsModel.GetRandomJoke();
+                    await Manager.LogMessageAsync(args.context, $"The joke is {joke}");
+
+                    if (joke.Length == 0)
+                    {
+                        await Manager.ShowAlertAsync(args.context);
+                    }
+                    else
+                    {
+                        var hWnd = NativeWin32.GetForegroundWindow();
+                        var strOut = new StringBuilder(256);
+                        
+                        NativeWin32.SetForegroundWindow(hWnd);
+                        NativeWin32.GetWindowText(hWnd, strOut, strOut.Capacity);
+                        Thread.Sleep(1500);
+                        
+                        TextCopy.ClipboardService.SetText($"/me " + joke);
 		
-                System.Windows.Forms.SendKeys.SendWait("^v");
-                System.Windows.Forms.SendKeys.SendWait("{ENTER}");
+                        System.Windows.Forms.SendKeys.SendWait("^v");
+                        System.Windows.Forms.SendKeys.SendWait("{ENTER}");
+                    }
+                    
+                }  catch (Exception e)
+                {
+                    await Manager.LogMessageAsync(args.context, e.ToString());
+                    throw;
+                }
+               
+               
+              
                 
             }
             
